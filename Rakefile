@@ -1,4 +1,4 @@
-DOTFILES = %w( gemrc gitconfig irbrc vimrc zshrc )
+DOTFILES = %w( gemrc gitconfig irbrc zshrc )
 
 desc "Install dotfiles"
 task :install do
