@@ -22,7 +22,7 @@
     ui = true
 [core]
     whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
-    excludesfile = /home/solnic/.gitignore
+    excludesfile = ~/.gitignore
 [alias]
     st = status
     ci = commit
