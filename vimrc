@@ -1,68 +1,97 @@
-" basics
-set t_Co=256            " set 256 color
-set nocompatible        " use Vim defaults
-set mouse=a             " make sure mouse is used in all cases.
-" colorscheme zellner     " define syntax color scheme
-set shortmess+=I        " disable the welcome screen
-set complete+=k         " enable dictionary completion
-set completeopt+=longest
-set clipboard+=unnamed  " yank and copy to X clipboard
-set backspace=2         " full backspacing capabilities
-set history=100         " 100 lines of command line history
-set ruler               " ruler display in status line
-set showmode            " show mode at bottom of screen
-set ww=<,>,[,]          " whichwrap -- left/right keys can traverse up/down
-set cmdheight=2         " set the command height
-set showmatch           " show matching brackets (),{},[]
-set mat=5               " show matching brackets for 0.5 seconds
+set nocompatible
 
-" wrap like other editors
-set wrap                " word wrap
-set textwidth=0         " 
-set lbr                 " line break
-set display=lastline    " don't display @ with long paragraphs
+set number
+set ruler
+syntax on
 
-" backup settings
-set backup              " keep a backup file
-set backupdir=/tmp      " backup dir
-set directory=/tmp      " swap file directory
+" Whitespace stuff
+set nowrap
+set tabstop=2
+set shiftwidth=2
+set expandtab
+set list listchars=tab:\ \ ,trail:·
 
-" tabs and indenting
-set expandtab           " insert spaces instead of tab chars
-set tabstop=4           " a n-space tab width
-set shiftwidth=4        " allows the use of < and > for VISUAL indenting
-set softtabstop=4       " counts n spaces when DELETE or BCKSPCE is used
-set autoindent          " auto indents next new line
+" Searching
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
 
-" searching
-set hlsearch            " highlight all search results
-set incsearch           " increment search
-set ignorecase          " case-insensitive search
-set smartcase           " upper-case sensitive search
+" Tab completion
+set wildmode=list:longest,list:full
+set wildignore+=*.o,*.obj,.git,*.rbc
 
-" syntax highlighting
-syntax on               " enable syntax highlighting
+" Status bar
+set laststatus=2
 
-" plug-in settings
-filetype plugin on
-filetype indent on
-autocmd Filetype tex,latex :set grepprg=grep\ -nH\ $*
-autocmd Filetype tex,latex :set dictionary=~/.vim/dict/latex.dict
+" NERDTree configuration
+let NERDTreeIgnore=['\.rbc$', '\~$']
+map <Leader>n :NERDTreeToggle<CR>
 
-" scroll one screen line regardless of editor line length
-:noremap    <Up> gk
-:noremap!   <Up> <C-O>gk
-:noremap    <Down> gj
-:noremap!   <Down> <C-O>gj
+" Command-T configuration
+let g:CommandTMaxHeight=20
 
-:noremap    k gk
-:noremap    j gj
+" ZoomWin configuration
+map <Leader>z :ZoomWin<CR>
 
-" map : to ; in normal mode
-map ; :
+" CTags
+map <Leader>rt :!ctags --extra=+f -R *<CR><CR>
 
-" spell check
-map <F12> :w<CR>:!aspell -c %<CR><CR>:e<CR><CR> 
+" Remember last location in file
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
+    \| exe "normal g'\"" | endif
+endif
 
-" hard copy printing
-map <F11> :!enscript -dEpson_R1800 --word-wrap --no-header --media=Letter --margins=72:72:72:72 %<CR><CR>:e<CR><CR>
+function s:setupWrapping()
+  set wrap
+  set wm=2
+  set textwidth=72
+endfunction
+
+function s:setupMarkup()
+  call s:setupWrapping()
+  map <buffer> <Leader>p :Mm <CR>
+endfunction
+
+" make and python use real tabs
+au FileType make                                     set noexpandtab
+au FileType python                                   set noexpandtab
+
+" Thorfile, Rakefile and Gemfile are Ruby
+au BufRead,BufNewFile {Gemfile,Rakefile,Thorfile,config.ru}    set ft=ruby
+
+" md, markdown, and mk are markdown and define buffer-local preview
+au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} call s:setupMarkup()
+
+au BufRead,BufNewFile *.txt call s:setupWrapping()
+
+" allow backspacing over everything in insert mode
+set backspace=indent,eol,start
+
+" load the plugin and indent settings for the detected filetype
+filetype plugin indent on
+
+" Opens an edit command with the path of the currently edited file filled in
+" Normal mode: <Leader>e
+map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
+
+" Opens a tab edit command with the path of the currently edited file filled in
+" Normal mode: <Leader>t
+map <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
+
+" Inserts the path of the currently edited file into a command
+" Command mode: Ctrl+P
+cmap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
+
+" Use modeline overrides
+set modeline
+set modelines=10
+
+" Default color scheme
+color desert
+
+" Include user's local vim config
+if filereadable(expand("~/.vimrc.local"))
+  source ~/.vimrc.local
+endif
