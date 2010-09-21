@@ -24,15 +24,19 @@ set wildignore+=*.o,*.obj,.git,*.rbc
 " Status bar
 set laststatus=2
 
+" Leader key
+let mapleader="/"
+
+" NERD tree
+map <F2> <ESC>:NERDTreeToggle<CR>
+nmap <Leader>ft :NERDTreeFind<CR>
+
 " NERDTree configuration
 let NERDTreeIgnore=['\.rbc$', '\~$']
-map <Leader>n :NERDTreeToggle<CR>
+" map <F2>n :NERDTreeToggle<CR>
 
 " Command-T configuration
 let g:CommandTMaxHeight=20
-
-" ZoomWin configuration
-map <Leader>z :ZoomWin<CR>
 
 " CTags
 map <Leader>rt :!ctags --extra=+f -R *<CR><CR>
@@ -59,7 +63,7 @@ au FileType make                                     set noexpandtab
 au FileType python                                   set noexpandtab
 
 " Thorfile, Rakefile and Gemfile are Ruby
-au BufRead,BufNewFile {Gemfile,Rakefile,Thorfile,config.ru}    set ft=ruby
+au BufRead,BufNewFile {Gemfile,Gemfile.local,Rakefile,Thorfile,config.ru}    set ft=ruby
 
 " md, markdown, and mk are markdown and define buffer-local preview
 au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} call s:setupMarkup()
@@ -95,3 +99,4 @@ color desert
 if filereadable(expand("~/.vimrc.local"))
   source ~/.vimrc.local
 endif
+
