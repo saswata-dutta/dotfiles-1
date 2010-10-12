@@ -1,7 +1,11 @@
+" No need for vi compatibility
 set nocompatible
 
+" Line numbering
 set number
 set ruler
+
+" We want colors!
 syntax on
 
 " Whitespace stuff
@@ -9,7 +13,8 @@ set nowrap
 set tabstop=2
 set shiftwidth=2
 set expandtab
-set list listchars=tab:\ \ ,trail:·
+set list
+set listchars=tab:»\ ,trail:·,nbsp:· 
 
 " Searching
 set hlsearch
@@ -24,8 +29,27 @@ set wildignore+=*.o,*.obj,.git,*.rbc
 " Status bar
 set laststatus=2
 
+" Say no to welcome screen
+set shortmess+=I
+
+" Status line
+set statusline=%f
+set statusline+=\ 
+set statusline+=%1*%m%*
+set statusline+=%=
+set statusline+=\ 
+set statusline+=\ 
+set statusline+=%-10.(%l,%c%V%)\ %P
+
+" save all buffers when (g)vim looses focus
+au FocusLost * :wa
+
+" Highlight characters in column >80
+highlight rightMargin guibg=#440000
+match rightMargin /.\%>80v/
+
 " Leader key
-let mapleader="/"
+let mapleader=","
 
 " NERD tree
 map <F2> <ESC>:NERDTreeToggle<CR>
@@ -50,7 +74,7 @@ endif
 function s:setupWrapping()
   set wrap
   set wm=2
-  set textwidth=72
+  set textwidth=80
 endfunction
 
 function s:setupMarkup()
@@ -94,6 +118,36 @@ set modelines=10
 
 " Default color scheme
 color desert
+
+" Key bindings
+
+" Hide search highlighting
+nnoremap <silent> <CR> :noh<CR><CR>
+
+" Move line(s) of text using Alt+j/k
+nnoremap <silent> <A-j> :m+<CR>==
+nnoremap <silent> <A-k> :m-2<CR>==
+inoremap <silent> <A-j> <Esc>:m+<CR>==gi
+inoremap <silent> <A-k> <Esc>:m-2<CR>==gi
+vnoremap <silent> <A-j> :m'>+<CR>gv=gv
+vnoremap <silent> <A-k> :m-2<CR>gv=gv
+
+" allow moving with j/k in insert mode
+inoremap <c-j> <Down>
+inoremap <c-k> <Up>
+inoremap <c-h> <Left>
+inoremap <c-l> <Right>
+
+" Indenting with Alt + [ and ]
+nmap <A-[> <<
+nmap <A-]> >>
+nmap <A-h> <<
+nmap <A-l> >>
+vmap <A-[> <gv
+vmap <A-]> >gv
+
+" Auto indent whole file
+nnoremap <silent> <leader>=call("normal gg=G")<CR>
 
 " Include user's local vim config
 if filereadable(expand("~/.vimrc.local"))

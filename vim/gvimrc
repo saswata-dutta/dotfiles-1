@@ -1,3 +1,6 @@
+" Set the font
+set guifont=Envy\ Code\ R\ 10
+
 " Start without the toolbar
 set guioptions-=T
 
@@ -11,7 +14,7 @@ function StartTerm()
 endfunction
 
 " Project Tree
-autocmd VimEnter * NERDTree ~/workspace
+autocmd VimEnter * NERDTree
 autocmd VimEnter * wincmd p
 autocmd VimEnter * call s:CdIfDirectory(expand("<amatch>"))
 
