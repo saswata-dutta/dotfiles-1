@@ -1,5 +1,5 @@
 " Set the font
-set guifont=Envy\ Code\ R\ 10
+set guifont=Droid\ Sans\ Mono\ Slashed\ 8
 
 " Start without the toolbar
 set guioptions-=T
