@@ -41,6 +41,12 @@ set statusline+=\
 set statusline+=\ 
 set statusline+=%-10.(%l,%c%V%)\ %P
 
+" History & backups
+set nobackup
+set nowritebackup
+set noswapfile
+set history=1000
+
 " save all buffers when (g)vim looses focus
 au FocusLost * :wa
 
