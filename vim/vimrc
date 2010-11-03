@@ -3,6 +3,7 @@ set nocompatible
 
 " Line numbering
 set number
+set numberwidth=4
 set ruler
 
 " We want colors!
