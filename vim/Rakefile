@@ -140,6 +140,7 @@ vim_plugin_task "rails",            "http://github.com/tpope/vim-rails.git"
 vim_plugin_task "rspec",            "http://github.com/taq/vim-rspec.git"
 vim_plugin_task "snipmate",         "http://github.com/msanders/snipmate.vim.git"
 vim_plugin_task "markdown",         "http://github.com/tpope/vim-markdown.git"
+vim_plugin_task "delimitMate",      "http://github.com/Raimondi/delimitMate.git"
 
 vim_plugin_task "command_t",        "http://github.com/wincent/Command-T.git" do
   sh "find ruby -name '.gitignore' | xargs rm"
@@ -187,10 +188,6 @@ end
 
 vim_plugin_task "mustasche" do
   sh "curl http://github.com/defunkt/mustache/raw/master/contrib/mustache.vim > syntax/mustache.vim"
-end
-
-vim_plugin_task "AutoClose" do
-  sh "curl http://www.vim.org/scripts/download_script.php?src_id=10873 > plugin/AutoClose.vim"
 end
 
 desc "Cleanup all the files"
