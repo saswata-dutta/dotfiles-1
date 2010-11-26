@@ -1,5 +1,5 @@
 " Set the font
-set guifont=Droid\ Sans\ Mono\ Slashed\ 8
+set guifont=Monospace\ 10
 
 " Start without the toolbar
 set guioptions-=T
