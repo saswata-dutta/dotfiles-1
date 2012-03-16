@@ -1,5 +1,38 @@
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+Bundle "gmarik/vundle"
+Bundle "altercation/vim-colors-solarized"
+Bundle "mileszs/ack.vim"
+Bundle "tpope/vim-fugitive"
+Bundle "tpope/vim-git"
+Bundle "tpope/vim-haml"
+Bundle "michaeljsmith/vim-indent-object"
+Bundle "pangloss/vim-javascript"
+Bundle "scrooloose/nerdtree"
+Bundle "scrooloose/nerdcommenter"
+Bundle "tpope/vim-surround"
+Bundle "vim-scripts/taglist.vim"
+Bundle "tpope/vim-vividchalk"
+Bundle "timcharper/textile.vim"
+Bundle "tpope/vim-rails"
+Bundle "taq/vim-rspec"
+Bundle "tpope/vim-markdown"
+Bundle "Raimondi/delimitMate"
+Bundle "wincent/Command-T"
+Bundle "bronson/vim-ruby-block-conv"
+Bundle "gregsexton/gitv"
+Bundle "garbas/vim-snipmate"
+Bundle "MarcWeber/vim-addon-mw-utils"
+Bundle "tomtom/tlib_vim"
+Bundle "honza/snipmate-snippets"
+Bundle "BufOnly.vim"
+
 " No need for vi compatibility
 set nocompatible
+
+" Encoding
+set enc=utf-8
 
 " Line numbering
 set number
@@ -14,8 +47,7 @@ set nowrap
 set tabstop=2
 set shiftwidth=2
 set expandtab
-set list
-set listchars=tab:Â»\ ,trail:Â·,nbsp:Â· 
+set list listchars=tab:»\ ,trail:·,nbsp:·
 
 " Searching
 set hlsearch
@@ -52,8 +84,7 @@ set history=1000
 au FocusLost * :wa
 
 " Highlight characters in column >80
-highlight rightMargin guibg=#440000
-match rightMargin /.\%>80v/
+set colorcolumn=80
 
 " Leader key
 let mapleader=","
@@ -124,7 +155,9 @@ set modeline
 set modelines=10
 
 " Default color scheme
-color desert
+colorscheme solarized
+set background=dark
+let g:solarized_contrast = "high"
 
 " Key bindings
 
@@ -156,8 +189,17 @@ vmap <A-]> >gv
 " Auto indent whole file
 nnoremap <silent> <leader>=call("normal gg=G")<CR>
 
+" disable arrow keys
+ "inoremap <Up>    <NOP>
+ "inoremap <Down>  <NOP>
+ "inoremap <Left>  <NOP>
+ "inoremap <Right> <NOP>
+ "noremap  <Up>    <NOP>
+ "noremap  <Down>  <NOP>
+ "noremap  <Left>  <NOP>
+ "noremap  <Right> <NOP>
+
 " Include user's local vim config
 if filereadable(expand("~/.vimrc.local"))
   source ~/.vimrc.local
 endif
-
