@@ -1,51 +1,42 @@
-autoload -U compinit promptinit
+export LC_CTYPE=en_US.UTF-8
+export LANG=en_US.UTF-8
 
-compinit
-promptinit
+# Path to your oh-my-zsh configuration.
+export ZSH=$HOME/.oh-my-zsh
 
-setopt extendedglob
+# Set name of the theme to load.
+# Look in ~/.oh-my-zsh/themes/
+# Optionally, if you set this to "random", it'll load a random theme each
+# time that oh-my-zsh is loaded.
+export ZSH_THEME="bira"
 
-# commands history
-export HISTSIZE=2000
-export HISTFILE="$HOME/.history"
+# Set to this to use case-sensitive completion
+# export CASE_SENSITIVE="true"
 
-# (History won't be saved without the following command)
-export SAVEHIST=$HISTSIZE
+# Comment this out to disable weekly auto-update checks
+# export DISABLE_AUTO_UPDATE="true"
 
-export PATH="$PATH:~/opt/bin"
-export EDITOR="vim"
+# Uncomment following line if you want to disable colors in ls
+# export DISABLE_LS_COLORS="true"
 
-# custom aliases
-alias downloads="cd ~/Downloads"
-alias workspace="cd ~/workspace"
-alias rc="./script/rails c"
+# Uncomment following line if you want to disable autosetting terminal title.
+# export DISABLE_AUTO_TITLE="true"
+#
 
-# DataMapper vars
-export NO_RCOV=true
+alias rvm-prompt=$HOME/.rvm/bin/rvm-prompt
 
-# keychain
-source ~/.keychain/helvete-sh
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Example format: plugins=(rails git textmate ruby lighthouse)
+plugins=(ssh-agent osx compleat git github ruby rails3 gem bundler)
 
-# custom aliases
-alias ls="ls --color"
+source $ZSH/oh-my-zsh.sh
 
-# bundler
-alias be="bundle exec"
-alias bi="bundle install"
-alias bu="bundle update"
+# Load RVM
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 
-# zgitinit and prompt_wunjo_setup must be somewhere in your $fpath, see README for more.
-setopt promptsubst
-# Use the wunjo prompt theme
-prompt wunjo
+alias tailf="tail -f"
 
-bindkey -e
-
-# rvm
-if [[ -s ~/.rvm/scripts/rvm ]] ; then source ~/.rvm/scripts/rvm ; fi
-
-# ruby-related stuff
-export SPEC_OPTS="--color --format progress"
-
+# Customize to your needs...
 source ~/.zshrc.local
 
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
