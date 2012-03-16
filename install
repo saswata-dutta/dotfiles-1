@@ -1,0 +1,8 @@
+#!/bin/bash
+
+for config in `ls -1 | grep -v install`
+do
+  echo "installing $config"
+  ln -sf "`pwd`/$config" "$HOME/.$config"
+done
+
