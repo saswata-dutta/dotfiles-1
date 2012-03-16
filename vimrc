@@ -190,14 +190,14 @@ vmap <A-]> >gv
 nnoremap <silent> <leader>=call("normal gg=G")<CR>
 
 " disable arrow keys
- "inoremap <Up>    <NOP>
- "inoremap <Down>  <NOP>
- "inoremap <Left>  <NOP>
- "inoremap <Right> <NOP>
- "noremap  <Up>    <NOP>
- "noremap  <Down>  <NOP>
- "noremap  <Left>  <NOP>
- "noremap  <Right> <NOP>
+inoremap <Up>    <NOP>
+inoremap <Down>  <NOP>
+inoremap <Left>  <NOP>
+inoremap <Right> <NOP>
+noremap  <Up>    <NOP>
+noremap  <Down>  <NOP>
+noremap  <Left>  <NOP>
+noremap  <Right> <NOP>
 
 " Include user's local vim config
 if filereadable(expand("~/.vimrc.local"))
