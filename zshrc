@@ -32,6 +32,7 @@ alias rvm-prompt=$HOME/.rvm/bin/rvm-prompt
 plugins=(vi-mode ssh-agent osx compleat git ruby rails3 gem bundler)
 
 source $ZSH/oh-my-zsh.sh
+unsetopt correct_all
 
 # Load RVM
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
