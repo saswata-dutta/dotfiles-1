@@ -98,7 +98,6 @@ map <F2> <ESC>:NERDTreeToggle<CR>
 nmap <Leader>ft :NERDTreeFind<CR>
 
 let NERDTreeIgnore=['\.rbc$', '\~$']
-" map <F2>n :NERDTreeToggle<CR>
 
 " CTags
 map <Leader>rt :!ctags --extra=+f -R *<CR><CR>
@@ -109,28 +108,12 @@ if has("autocmd")
     \| exe "normal g'\"" | endif
 endif
 
-function s:setupWrapping()
-  set wrap
-  set wm=2
-  set textwidth=80
-endfunction
-
-function s:setupMarkup()
-  call s:setupWrapping()
-  map <buffer> <Leader>p :Mm <CR>
-endfunction
-
 " make and python use real tabs
-au FileType make                                     set noexpandtab
-au FileType python                                   set noexpandtab
+au FileType make   set noexpandtab
+au FileType python set noexpandtab
 
 " Thorfile, Rakefile and Gemfile are Ruby
-au BufRead,BufNewFile {Gemfile,Gemfile.local,Rakefile,Thorfile,config.ru}    set ft=ruby
-
-" md, markdown, and mk are markdown and define buffer-local preview
-au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} call s:setupMarkup()
-
-au BufRead,BufNewFile *.txt call s:setupWrapping()
+au BufRead,BufNewFile {Gemfile,Gemfile.local,Rakefile,Thorfile,config.ru} set ft=ruby
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
