@@ -93,12 +93,8 @@ let mapleader=","
 map <F2> <ESC>:NERDTreeToggle<CR>
 nmap <Leader>ft :NERDTreeFind<CR>
 
-" NERDTree configuration
 let NERDTreeIgnore=['\.rbc$', '\~$']
 " map <F2>n :NERDTreeToggle<CR>
-
-" Command-T configuration
-let g:CommandTMaxHeight=20
 
 " CTags
 map <Leader>rt :!ctags --extra=+f -R *<CR><CR>
@@ -138,18 +134,6 @@ set backspace=indent,eol,start
 " load the plugin and indent settings for the detected filetype
 filetype plugin indent on
 
-" Opens an edit command with the path of the currently edited file filled in
-" Normal mode: <Leader>e
-map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
-
-" Opens a tab edit command with the path of the currently edited file filled in
-" Normal mode: <Leader>t
-map <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
-
-" Inserts the path of the currently edited file into a command
-" Command mode: Ctrl+P
-cmap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
-
 " Use modeline overrides
 set modeline
 set modelines=10
@@ -168,7 +152,7 @@ map <C-k> <C-w>k
 map <C-l> <C-w>l
 
 " Hide search highlighting
-nnoremap <silent> <CR> :noh<CR><CR>
+nnoremap <silent> <Space> <CR> :noh<CR><CR>
 
 " Move line(s) of text using Alt+j/k
 nnoremap <silent> <A-j> :m+<CR>==
