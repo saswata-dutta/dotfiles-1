@@ -161,6 +161,12 @@ let g:solarized_contrast = "high"
 
 " Key bindings
 
+" Easy window switching
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
+
 " Hide search highlighting
 nnoremap <silent> <CR> :noh<CR><CR>
 
@@ -203,3 +209,4 @@ noremap  <Right> <NOP>
 if filereadable(expand("~/.vimrc.local"))
   source ~/.vimrc.local
 endif
+
