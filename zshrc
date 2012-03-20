@@ -29,7 +29,7 @@ alias rvm-prompt=$HOME/.rvm/bin/rvm-prompt
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(vi-mode ssh-agent osx compleat git github ruby rails3 gem bundler)
+plugins=(vi-mode ssh-agent osx compleat git ruby rails3 gem bundler)
 
 source $ZSH/oh-my-zsh.sh
 
