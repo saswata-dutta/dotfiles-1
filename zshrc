@@ -1,6 +1,8 @@
 export LC_CTYPE=en_US.UTF-8
 export LANG=en_US.UTF-8
 
+export EDITOR="vim"
+
 # Path to your oh-my-zsh configuration.
 export ZSH=$HOME/.oh-my-zsh
 
@@ -8,7 +10,7 @@ export ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-export ZSH_THEME="bira"
+export ZSH_THEME="mortalscumbag"
 
 # Set to this to use case-sensitive completion
 # export CASE_SENSITIVE="true"
@@ -27,7 +29,7 @@ alias rvm-prompt=$HOME/.rvm/bin/rvm-prompt
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(ssh-agent osx compleat git github ruby rails3 gem bundler)
+plugins=(vi-mode ssh-agent osx compleat git github ruby rails3 gem bundler)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -40,3 +42,4 @@ alias tailf="tail -f"
 source ~/.zshrc.local
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
