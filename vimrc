@@ -42,6 +42,10 @@ set ruler
 " We want colors!
 syntax on
 
+" Default color scheme
+colorscheme solarized
+set background=dark
+
 " Whitespace stuff
 set nowrap
 set tabstop=2
@@ -137,11 +141,6 @@ filetype plugin indent on
 " Use modeline overrides
 set modeline
 set modelines=10
-
-" Default color scheme
-colorscheme solarized
-set background=dark
-let g:solarized_contrast = "high"
 
 " Key bindings
 
