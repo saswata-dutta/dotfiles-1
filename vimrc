@@ -138,9 +138,11 @@ set background=dark
 Bundle "scrooloose/nerdtree"
 Bundle "scrooloose/nerdcommenter"
 
-map <F2> <ESC>:NERDTreeToggle<CR>
-nmap <Leader>ft :NERDTreeFind<CR>
+nmap <silent> <leader>n :NERDTreeToggle<CR>
 
+let NERDTreeMapOpenSplit = "s"
+let NERDTreeMapOpenVSplit = "v"
+let NERDTreeMinimalUI = 1
 let NERDTreeIgnore=['\.rbc$', '\~$']
 
 " various utils
