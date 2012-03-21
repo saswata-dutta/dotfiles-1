@@ -155,6 +155,7 @@ Bundle 'tpope/vim-abolish'
 Bundle "tpope/vim-vividchalk"
 Bundle "tpope/vim-surround"
 Bundle "vim-scripts/taglist.vim"
+Bundle "sickill/vim-pasta"
 
 " git-related plugins
 Bundle "tpope/vim-git"
