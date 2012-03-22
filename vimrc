@@ -2,7 +2,7 @@
 set nocompatible
 
 " Encoding
-set enc=utf-8
+set encoding=utf-8
 
 " Line numbering
 set number
@@ -34,19 +34,6 @@ set laststatus=2
 
 " Say no to welcome screen
 set shortmess+=I
-
-" Status line
-set statusline=%f
-set statusline+=\ 
-set statusline+=%1*%m%*
-set statusline+=%=
-set statusline+=\ 
-set statusline+=\ 
-set statusline+=%-10.(%l,%c%V%)\ %P
-set statusline+=\ 
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
 
 " History & backups
 set nobackup
@@ -166,6 +153,8 @@ let g:gist_clip_command = 'pbcopy'
 
 Bundle "scrooloose/syntastic"
 let g:syntastic_check_on_open=1
+
+Bundle "Lokaltog/vim-powerline"
 
 " git-related plugins
 Bundle "tpope/vim-git"
