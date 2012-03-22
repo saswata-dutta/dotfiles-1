@@ -160,6 +160,10 @@ Bundle "tpope/vim-surround"
 Bundle "vim-scripts/taglist.vim"
 Bundle "sickill/vim-pasta"
 
+Bundle "mattn/gist-vim"
+let g:github_token = $GITHUB_TOKEN
+let g:gist_clip_command = 'pbcopy'
+
 Bundle "scrooloose/syntastic"
 let g:syntastic_check_on_open=1
 
