@@ -175,7 +175,8 @@ Bundle "tpope/vim-markdown"
 Bundle "timcharper/textile.vim"
 
 " ruby-related plugins
-Bundle 'jgdavey/vim-blockle'
+Bundle "vim-ruby/vim-ruby"
+Bundle "jgdavey/vim-blockle"
 Bundle "tpope/vim-rails"
 
 " ~~~~~~~~~~~~ include local config  ~~~~~~~~~~~~~~
