@@ -43,15 +43,16 @@ set statusline+=%=
 set statusline+=\ 
 set statusline+=\ 
 set statusline+=%-10.(%l,%c%V%)\ %P
+set statusline+=\ 
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
 
 " History & backups
 set nobackup
 set nowritebackup
 set noswapfile
 set history=1000
-
-" Leader key
-let mapleader=","
 
 " Highlight characters in column >80
 set colorcolumn=80
@@ -73,6 +74,9 @@ set modeline
 set modelines=10
 
 " ~~~~~~~~~~~~ key bindings ~~~~~~~~~~~~~~
+
+" Leader key
+let mapleader=","
 
 " Easy window switching
 map <C-h> <C-w>h
@@ -152,10 +156,12 @@ Bundle "garbas/vim-snipmate"
 Bundle "honza/snipmate-snippets"
 Bundle "BufOnly.vim"
 Bundle 'tpope/vim-abolish'
-Bundle "tpope/vim-vividchalk"
 Bundle "tpope/vim-surround"
 Bundle "vim-scripts/taglist.vim"
 Bundle "sickill/vim-pasta"
+
+Bundle "scrooloose/syntastic"
+let g:syntastic_check_on_open=1
 
 " git-related plugins
 Bundle "tpope/vim-git"
