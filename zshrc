@@ -3,44 +3,31 @@ export LANG=en_US.UTF-8
 
 export EDITOR="vim"
 
-# Path to your oh-my-zsh configuration.
 export ZSH=$HOME/.oh-my-zsh
-
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-export ZSH_THEME="mortalscumbag"
-
-# Set to this to use case-sensitive completion
-# export CASE_SENSITIVE="true"
-
-# Comment this out to disable weekly auto-update checks
-# export DISABLE_AUTO_UPDATE="true"
-
-# Uncomment following line if you want to disable colors in ls
-# export DISABLE_LS_COLORS="true"
-
-# Uncomment following line if you want to disable autosetting terminal title.
-# export DISABLE_AUTO_TITLE="true"
-#
+export ZSH_THEME="josh"
 
 alias rvm-prompt=$HOME/.rvm/bin/rvm-prompt
 
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(vi-mode ssh-agent osx compleat git ruby rails3 gem bundler)
 
 source $ZSH/oh-my-zsh.sh
 unsetopt correct_all
 
+# Load tmuxinator
+[[ -s ~/.tmuxinator/scripts/tmuxinator ]] && source ~/.tmuxinator/scripts/tmuxinator
+
 # Load RVM
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 
-alias tailf="tail -f"
+# Add RVM to PATH for scripting
+PATH=$PATH:$HOME/.rvm/bi
 
-# Customize to your needs...
+# Load local zsh settings
 source ~/.zshrc.local
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+# Bindings for search in vi mode
+bindkey -M viins '^r' history-incremental-search-backward
+bindkey -M vicmd '^r' history-incremental-search-backward
+bindkey '^[[A' up-line-or-search
+bindkey '^[[B' down-line-or-search
 
