@@ -142,10 +142,11 @@ Bundle "mileszs/ack.vim"
 Bundle "garbas/vim-snipmate"
 Bundle "honza/snipmate-snippets"
 Bundle "BufOnly.vim"
-Bundle 'tpope/vim-abolish'
+Bundle "tpope/vim-abolish"
 Bundle "tpope/vim-surround"
 Bundle "vim-scripts/taglist.vim"
 Bundle "sickill/vim-pasta"
+Bundle "kana/vim-smartinput"
 
 Bundle "mattn/gist-vim"
 let g:github_token = $GITHUB_TOKEN
