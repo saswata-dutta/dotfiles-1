@@ -33,10 +33,12 @@
 [alias]
   st = status
   ci = commit
+  cm = commit -m
   br = branch
   co = checkout
   df = diff
   lg = log -p
+  aa = add .
 
 [mergetool "diffmerge"]
   cmd = diffmerge --merge --result=$MERGED $LOCAL $BASE $REMOTE
