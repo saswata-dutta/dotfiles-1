@@ -109,6 +109,31 @@ noremap  <Down>  <NOP>
 noremap  <Left>  <NOP>
 noremap  <Right> <NOP>
 
+" smart file rename
+" stolen from: https://github.com/garybernhardt/dotfiles/blob/master/.vimrc
+function! RenameFile()
+  let old_name = expand('%')
+  let new_name = input('New file name: ', expand('%'))
+  if new_name != '' && new_name != old_name
+    exec ':saveas ' . new_name
+    exec ':silent !rm ' . old_name
+    redraw!
+  endif
+endfunction
+map <leader>m :call RenameFile()<cr>
+
+" convert var assignment to rspec let
+" stolen from: https://github.com/garybernhardt/dotfiles/blob/master/.vimrc
+function! PromoteToLet()
+  :normal! dd
+  :exec '?^\s*it\>'
+  :normal! P
+  :.s/\(\w\+\) = \(.*\)$/let(:\1) { \2 }/
+  :normal ==
+endfunction
+:command! PromoteToLet :call PromoteToLet()
+:map <leader>p :PromoteToLet<cr>
+
 " ~~~~~~~~~~~~ plugins ~~~~~~~~~~~~~~
 
 set rtp+=~/.vim/bundle/vundle/
