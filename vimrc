@@ -173,6 +173,9 @@ Bundle "vim-scripts/taglist.vim"
 Bundle "sickill/vim-pasta"
 Bundle "kana/vim-smartinput"
 
+Bundle "sjl/vitality.vim"
+:au FocusLost * silent! wa
+
 Bundle "mattn/gist-vim"
 let g:github_token = $GITHUB_TOKEN
 let g:gist_clip_command = 'pbcopy'
