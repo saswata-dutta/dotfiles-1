@@ -1,6 +1,6 @@
 #!/bin/bash
 
-for config in `ls -1 | grep -v install`
+for config in `ls -1 | grep -vP "README.md|install"`
 do
   echo "installing $config"
   ln -sf "`pwd`/$config" "$HOME/.$config"
