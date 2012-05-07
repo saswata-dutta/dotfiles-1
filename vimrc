@@ -44,9 +44,6 @@ set history=1000
 " Highlight characters in column >80
 set colorcolumn=80
 
-" CTags
-map <Leader>rt :!ctags --extra=+f -R *<CR><CR>
-
 " Thorfile, Rakefile and Gemfile are Ruby
 au BufRead,BufNewFile {Gemfile,Gemfile.local,Rakefile,Thorfile,config.ru} set ft=ruby
 
@@ -59,6 +56,9 @@ filetype plugin indent on
 " Use modeline overrides
 set modeline
 set modelines=10
+
+" OS X clipboard
+set clipboard=unnamed
 
 " ~~~~~~~~~~~~ key bindings ~~~~~~~~~~~~~~
 
@@ -95,6 +95,9 @@ nmap <A-h> <<
 nmap <A-l> >>
 vmap <A-[> <gv
 vmap <A-]> >gv
+
+" CTags
+map <Leader>rt :!ctags --extra=+f -R *<CR><CR>
 
 " Auto indent whole file
 nnoremap <silent> <leader>=call("normal gg=G")<CR>
