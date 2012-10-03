@@ -45,7 +45,7 @@ set history=1000
 set colorcolumn=80
 
 " Thorfile, Rakefile and Gemfile are Ruby
-au BufRead,BufNewFile {Gemfile,Gemfile.local,Rakefile,Thorfile,config.ru} set ft=ruby
+au BufRead,BufNewFile {Gemfile,Gemfile.local,Rakefile,Thorfile,Guardfile,config.ru,*.prawn} set ft=ruby
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
@@ -151,7 +151,7 @@ Bundle "tomtom/tlib_vim"
 " the best color scheme ever
 Bundle "altercation/vim-colors-solarized"
 colorscheme solarized
-set background=dark
+set background=light
 
 " NERDTree
 Bundle "scrooloose/nerdtree"
@@ -204,9 +204,15 @@ Bundle "vim-ruby/vim-ruby"
 Bundle "jgdavey/vim-blockle"
 Bundle "tpope/vim-rails"
 
+" Syntax highlighting for less
+Bundle "groenewege/vim-less"
+au BufRead,BufNewFile *.less set ft=less
+
+" Extended %
+Bundle "edsono/vim-matchit"
+
 " ~~~~~~~~~~~~ include local config  ~~~~~~~~~~~~~~
 
 if filereadable(expand("~/.vimrc.local"))
   source ~/.vimrc.local
 endif
-
