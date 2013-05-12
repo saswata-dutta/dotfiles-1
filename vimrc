@@ -12,6 +12,9 @@ set ruler
 " We want colors!
 syntax on
 
+" Vundle needs this for ftdetect to work
+filetype off
+
 " Whitespace stuff
 set nowrap
 set tabstop=2
@@ -49,9 +52,6 @@ au BufRead,BufNewFile {Gemfile,Gemfile.local,Rakefile,Thorfile,Guardfile,config.
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
-
-" load the plugin and indent settings for the detected filetype
-filetype plugin indent on
 
 " Use modeline overrides
 set modeline
@@ -166,12 +166,15 @@ let NERDTreeIgnore=['\.rbc$', '\~$']
 
 " various utils
 Bundle "kien/ctrlp.vim"
+
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/vendor/*,*/coverage/*,*/profiling/*,*/measurements/*,*/doc/*
+
 Bundle "mileszs/ack.vim"
 Bundle "garbas/vim-snipmate"
 Bundle "honza/snipmate-snippets"
-Bundle "BufOnly.vim"
 Bundle "tpope/vim-abolish"
 Bundle "tpope/vim-surround"
+Bundle "vim-scripts/BufOnly.vim"
 Bundle "vim-scripts/taglist.vim"
 Bundle "sickill/vim-pasta"
 Bundle "kana/vim-smartinput"
@@ -197,6 +200,7 @@ Bundle "gregsexton/gitv"
 Bundle "pangloss/vim-javascript"
 Bundle "tpope/vim-haml"
 Bundle "tpope/vim-markdown"
+Bundle "slim-template/vim-slim"
 Bundle "timcharper/textile.vim"
 
 " ruby-related plugins
@@ -206,10 +210,21 @@ Bundle "tpope/vim-rails"
 
 " Syntax highlighting for less
 Bundle "groenewege/vim-less"
-au BufRead,BufNewFile *.less set ft=less
+
+" CoffeeScript support
+Bundle "kchmck/vim-coffee-script"
+
+" Clojure support
+Bundle "vim-scripts/VimClojure"
 
 " Extended %
 Bundle "edsono/vim-matchit"
+
+Bundle "godlygeek/tabular"
+Bundle "tpope/vim-repeat"
+
+" load the plugin and indent settings for the detected filetype
+filetype plugin indent on
 
 " ~~~~~~~~~~~~ include local config  ~~~~~~~~~~~~~~
 
