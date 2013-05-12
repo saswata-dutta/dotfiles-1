@@ -39,6 +39,8 @@
   df = diff
   lg = log -p
   aa = add .
+  p  = push
+  u  = up
 
 [mergetool "diffmerge"]
   cmd = diffmerge --merge --result=$MERGED $LOCAL $BASE $REMOTE
@@ -46,3 +48,8 @@
 
 [push]
   default = matching
+[github]
+  user = solnic
+
+[alias]
+  sed = !sh -c 'git ls-files -z $2 | xargs -0 sed -i -e $1' -
