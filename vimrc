@@ -166,21 +166,16 @@ let NERDTreeIgnore=['\.rbc$', '\~$']
 
 " various utils
 Bundle "kien/ctrlp.vim"
-
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/vendor/*,*/coverage/*,*/profiling/*,*/measurements/*,*/doc/*
 
 Bundle "mileszs/ack.vim"
 Bundle "garbas/vim-snipmate"
-Bundle "honza/snipmate-snippets"
 Bundle "tpope/vim-abolish"
 Bundle "tpope/vim-surround"
 Bundle "vim-scripts/BufOnly.vim"
 Bundle "vim-scripts/taglist.vim"
 Bundle "sickill/vim-pasta"
 Bundle "kana/vim-smartinput"
-
-Bundle "sjl/vitality.vim"
-:au FocusLost * silent! wa
 
 Bundle "mattn/gist-vim"
 let g:github_token = $GITHUB_TOKEN
@@ -189,12 +184,8 @@ let g:gist_clip_command = 'pbcopy'
 Bundle "scrooloose/syntastic"
 let g:syntastic_check_on_open=1
 
-Bundle "Lokaltog/vim-powerline"
-
-" git-related plugins
-Bundle "tpope/vim-git"
 Bundle "tpope/vim-fugitive"
-Bundle "gregsexton/gitv"
+Bundle "Lokaltog/vim-powerline"
 
 " language/markup support plugins
 Bundle "pangloss/vim-javascript"
