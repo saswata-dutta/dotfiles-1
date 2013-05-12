@@ -18,3 +18,9 @@
 ehthumbs.db
 Icon?
 Thumbs.db
+coverage
+tmp
+.vagrant*
+.rbx
+.powrc
+.ruby-gemset
