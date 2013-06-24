@@ -169,13 +169,13 @@ Bundle "kien/ctrlp.vim"
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/vendor/*,*/coverage/*,*/profiling/*,*/measurements/*,*/doc/*
 
 Bundle "mileszs/ack.vim"
-Bundle "garbas/vim-snipmate"
 Bundle "tpope/vim-abolish"
 Bundle "tpope/vim-surround"
 Bundle "vim-scripts/BufOnly.vim"
 Bundle "vim-scripts/taglist.vim"
 Bundle "sickill/vim-pasta"
-Bundle "kana/vim-smartinput"
+Bundle "garbas/vim-snipmate"
+Bundle "honza/vim-snippets"
 
 Bundle "mattn/gist-vim"
 let g:github_token = $GITHUB_TOKEN
@@ -212,6 +212,10 @@ Bundle "vim-scripts/VimClojure"
 Bundle "edsono/vim-matchit"
 
 Bundle "godlygeek/tabular"
+vnoremap <leader>t= :Tab /=<cr>
+vnoremap <leader>t> :Tab /=><cr>
+vnoremap <leader>t: :Tab /\w:\zs/l0l1<cr>
+
 Bundle "tpope/vim-repeat"
 
 " load the plugin and indent settings for the detected filetype
