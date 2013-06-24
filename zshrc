@@ -9,7 +9,7 @@ export EDITOR="vim"
 export ZSH=$HOME/.oh-my-zsh
 export ZSH_THEME="josh"
 
-plugins=(ssh-agent compleat git bundler)
+plugins=(ssh-agent compleat git)
 
 source $ZSH/oh-my-zsh.sh
 unsetopt correct_all
