@@ -15,6 +15,8 @@ setopt NOBGNICE
 setopt autocd
 setopt autopushd
 
+. ~/.zsh/aliases.zsh
+. ~/.zsh/env.zsh
 . ~/.zsh/completion.zsh
 . ~/.zsh/key-bindings.zsh
 . ~/.zsh/history.zsh
