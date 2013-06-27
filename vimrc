@@ -9,6 +9,9 @@ set number
 set numberwidth=4
 set ruler
 
+" This issues with toggling nerdtree
+set guioptions-=LR
+
 " We want colors!
 syntax on
 
@@ -56,9 +59,6 @@ set backspace=indent,eol,start
 " Use modeline overrides
 set modeline
 set modelines=10
-
-" OS X clipboard
-set clipboard=unnamed
 
 " ~~~~~~~~~~~~ key bindings ~~~~~~~~~~~~~~
 
@@ -144,27 +144,32 @@ call vundle#rc()
 
 Bundle "gmarik/vundle"
 
-" vimscript extensions
-Bundle "MarcWeber/vim-addon-mw-utils"
-Bundle "tomtom/tlib_vim"
-
 " the best color scheme ever
 Bundle "altercation/vim-colors-solarized"
 colorscheme solarized
 set background=light
+set t_Co=256
+let g:solarized_termcolors=256
 
-" NERDTree
 Bundle "scrooloose/nerdtree"
 Bundle "scrooloose/nerdcommenter"
 
-nmap <silent> <leader>n :NERDTreeToggle<CR>
+function! ToggleFileExplorer()
+ :NERDTreeToggle
+ :redraw
+endfunction
+:command! ToggleFileExplorer :call ToggleFileExplorer()
+
+nmap <silent> <leader>n :ToggleFileExplorer<CR>
 
 let NERDTreeMapOpenSplit = "s"
 let NERDTreeMapOpenVSplit = "v"
 let NERDTreeMinimalUI = 1
 let NERDTreeIgnore=['\.rbc$', '\~$']
 
-" various utils
+Bundle "MarcWeber/vim-addon-mw-utils"
+Bundle "tomtom/tlib_vim"
+
 Bundle "kien/ctrlp.vim"
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/vendor/*,*/coverage/*,*/profiling/*,*/measurements/*,*/doc/*
 
@@ -187,28 +192,22 @@ let g:syntastic_check_on_open=1
 Bundle "tpope/vim-fugitive"
 Bundle "Lokaltog/vim-powerline"
 
-" language/markup support plugins
 Bundle "pangloss/vim-javascript"
 Bundle "tpope/vim-haml"
 Bundle "tpope/vim-markdown"
 Bundle "slim-template/vim-slim"
 Bundle "timcharper/textile.vim"
 
-" ruby-related plugins
 Bundle "vim-ruby/vim-ruby"
 Bundle "jgdavey/vim-blockle"
 Bundle "tpope/vim-rails"
 
-" Syntax highlighting for less
 Bundle "groenewege/vim-less"
 
-" CoffeeScript support
 Bundle "kchmck/vim-coffee-script"
 
-" Clojure support
 Bundle "vim-scripts/VimClojure"
 
-" Extended %
 Bundle "edsono/vim-matchit"
 
 Bundle "godlygeek/tabular"
