@@ -167,11 +167,15 @@ let NERDTreeMapOpenVSplit = "v"
 let NERDTreeMinimalUI = 1
 let NERDTreeIgnore=['\.rbc$', '\~$']
 
+Bundle "bling/vim-airline"
+let g:airline_theme='dark'
+
 Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
 
 Bundle "kien/ctrlp.vim"
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/vendor/*,*/coverage/*,*/profiling/*,*/measurements/*,*/doc/*
+nnoremap <leader>. :CtrlPTag<cr>
 
 Bundle "mileszs/ack.vim"
 Bundle "tpope/vim-abolish"
@@ -190,7 +194,6 @@ Bundle "scrooloose/syntastic"
 let g:syntastic_check_on_open=1
 
 Bundle "tpope/vim-fugitive"
-Bundle "Lokaltog/vim-powerline"
 
 Bundle "pangloss/vim-javascript"
 Bundle "tpope/vim-haml"
@@ -201,6 +204,7 @@ Bundle "timcharper/textile.vim"
 Bundle "vim-ruby/vim-ruby"
 Bundle "jgdavey/vim-blockle"
 Bundle "tpope/vim-rails"
+Bundle "puppetlabs/puppet-syntax-vim"
 
 Bundle "groenewege/vim-less"
 
@@ -216,6 +220,7 @@ vnoremap <leader>t> :Tab /=><cr>
 vnoremap <leader>t: :Tab /\w:\zs/l0l1<cr>
 
 Bundle "tpope/vim-repeat"
+Bundle "michaeljsmith/vim-indent-object"
 
 " load the plugin and indent settings for the detected filetype
 filetype plugin indent on
