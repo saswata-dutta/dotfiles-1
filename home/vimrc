@@ -65,6 +65,9 @@ set modelines=10
 " Leader key
 let mapleader=","
 
+" Fast saving
+nnoremap <Leader>w :w<CR>
+
 " Easy window switching
 map <C-h> <C-w>h
 map <C-j> <C-w>j
