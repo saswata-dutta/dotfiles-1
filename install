@@ -5,4 +5,3 @@ do
   echo "installing $config"
   ln -sf "`pwd`/$config" "$HOME/.$config"
 done
-
