@@ -26,5 +26,9 @@ setopt autopushd
 # Load tmuxinator
 [[ -s ~/.tmuxinator/scripts/tmuxinator ]] && source ~/.tmuxinator/scripts/tmuxinator
 
+# Load chruby
+source /usr/local/share/chruby/auto.sh
+source /usr/local/share/chruby/chruby.sh
+
 # Load local zsh settings
 source ~/.zshrc.local
