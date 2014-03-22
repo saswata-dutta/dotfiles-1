@@ -2,6 +2,10 @@
 
 for config in `ls home`
 do
-  echo "installing $config"
-  ln -sf "`pwd`/home/$config" "$HOME/.$config"
+  if [ ! -e "$HOME/.$config" ]; then
+    echo "symlinking $config"
+    ln -s "`pwd`/home/$config" "$HOME/.$config"
+  else
+    echo "$config already symlinked"
+  fi
 done
