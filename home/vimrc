@@ -140,6 +140,15 @@ endfunction
 :command! PromoteToLet :call PromoteToLet()
 :map <leader>p :PromoteToLet<cr>
 
+" fold ruby comments automatically
+autocmd FileType ruby,eruby
+      \ set foldmethod=expr |
+      \ set foldexpr=getline(v:lnum)=~'^\\s*#' |
+      \ exe "normal zM``"
+
+" remove trailing ws on write
+autocmd BufWritePre * :%s/\s\+$//e
+
 " ~~~~~~~~~~~~ plugins ~~~~~~~~~~~~~~
 
 set rtp+=~/.vim/bundle/vundle/
@@ -155,7 +164,6 @@ set t_Co=256
 let g:solarized_termcolors=256
 
 Bundle "scrooloose/nerdtree"
-Bundle "scrooloose/nerdcommenter"
 
 function! ToggleFileExplorer()
  :NERDTreeToggle
@@ -171,10 +179,14 @@ let NERDTreeMinimalUI = 1
 let NERDTreeIgnore=['\.rbc$', '\~$']
 
 Bundle "bling/vim-airline"
-let g:airline_theme='dark'
+let g:airline_theme="solarized"
 
 Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
+
+"Bundle "Shougo/vimproc.vim"
+"Bundle "Shougo/unite.vim"
+"nnoremap <C-p> :Unite file_rec/async<cr>
 
 Bundle "kien/ctrlp.vim"
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/vendor/*,*/coverage/*,*/profiling/*,*/measurements/*,*/doc/*
@@ -183,9 +195,10 @@ nnoremap <leader>. :CtrlPTag<cr>
 Bundle "mileszs/ack.vim"
 Bundle "tpope/vim-abolish"
 Bundle "tpope/vim-surround"
+Bundle "tpope/vim-commentary"
+Bundle "tpope/vim-unimpaired"
 Bundle "vim-scripts/BufOnly.vim"
 Bundle "vim-scripts/taglist.vim"
-Bundle "sickill/vim-pasta"
 Bundle "garbas/vim-snipmate"
 Bundle "honza/vim-snippets"
 
@@ -203,19 +216,14 @@ Bundle "tpope/vim-haml"
 Bundle "tpope/vim-markdown"
 Bundle "slim-template/vim-slim"
 Bundle "timcharper/textile.vim"
-
 Bundle "vim-ruby/vim-ruby"
 Bundle "jgdavey/vim-blockle"
 Bundle "tpope/vim-rails"
 Bundle "puppetlabs/puppet-syntax-vim"
 
 Bundle "groenewege/vim-less"
-
 Bundle "kchmck/vim-coffee-script"
-
 Bundle "vim-scripts/VimClojure"
-
-Bundle "edsono/vim-matchit"
 
 Bundle "godlygeek/tabular"
 vnoremap <leader>t= :Tab /=<cr>
@@ -224,6 +232,13 @@ vnoremap <leader>t: :Tab /\w:\zs/l0l1<cr>
 
 Bundle "tpope/vim-repeat"
 Bundle "michaeljsmith/vim-indent-object"
+
+" required by vim-textobj-ruby
+Bundle "edsono/vim-matchit"
+runtime macros/matchit.vim
+
+Bundle "kana/vim-textobj-user"
+Bundle "nelstrom/vim-textobj-rubyblock"
 
 " load the plugin and indent settings for the detected filetype
 filetype plugin indent on

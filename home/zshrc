@@ -15,20 +15,19 @@ setopt NOBGNICE
 setopt autocd
 setopt autopushd
 
-. ~/.zsh/aliases.zsh
-. ~/.zsh/env.zsh
-. ~/.zsh/completion.zsh
-. ~/.zsh/key-bindings.zsh
-. ~/.zsh/history.zsh
-. ~/.zsh/git.zsh
-. ~/.zsh/prompt.zsh
+source ~/.zsh/aliases.zsh
+source ~/.zsh/env.zsh
+source ~/.zsh/completion.zsh
+source ~/.zsh/key-bindings.zsh
+source ~/.zsh/history.zsh
+source ~/.zsh/git.zsh
+source ~/.zsh/prompt.zsh
 
 # Load tmuxinator
 [[ -s ~/.tmuxinator/scripts/tmuxinator ]] && source ~/.tmuxinator/scripts/tmuxinator
 
-# Load chruby
-source /usr/local/share/chruby/auto.sh
-source /usr/local/share/chruby/chruby.sh
-
 # Load local zsh settings
 source ~/.zshrc.local
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"

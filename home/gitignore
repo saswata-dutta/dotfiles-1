@@ -9,6 +9,7 @@
 *.rar
 *.tar
 *.zip
+*.gem
 
 *.log
 *.sql

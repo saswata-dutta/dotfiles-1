@@ -47,7 +47,7 @@
   trustExitCode = false
 
 [push]
-  default = matching
+  default = upstream
 [github]
   user = solnic
 
