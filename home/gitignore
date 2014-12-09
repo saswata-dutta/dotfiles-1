@@ -12,7 +12,6 @@
 *.gem
 
 *.log
-*.sql
 *.sqlite
 
 .DS_Store

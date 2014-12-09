@@ -1,6 +1,7 @@
 alias tailf="tail -f"
 
 alias ta="tmux attach -d -t"
+alias tms="tmuxinator start"
 
 alias g="git"
 alias gp="git push"

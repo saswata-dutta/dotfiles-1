@@ -57,3 +57,6 @@ zstyle ':completion:*' accept-exact '*(N)'
 # Cache expensive completions
 zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path ~/.cache/zsh
+
+# Load extra completion
+for f in `ls ~/.zsh/completion/*.zsh`; do source $f; done

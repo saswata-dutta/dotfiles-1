@@ -51,7 +51,7 @@ set history=1000
 set colorcolumn=80
 
 " Thorfile, Rakefile and Gemfile are Ruby
-au BufRead,BufNewFile {Gemfile,Gemfile.local,Rakefile,Thorfile,Guardfile,config.ru,*.prawn} set ft=ruby
+au BufRead,BufNewFile {Gemfile,Gemfile.local,Rakefile,Thorfile,Guardfile,config.ru,*.prawn,*.eye} set ft=ruby
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
@@ -104,6 +104,9 @@ map <Leader>rt :!ctags --extra=+f -R *<CR><CR>
 
 " Auto indent whole file
 nnoremap <silent> <leader>=call("normal gg=G")<CR>
+
+" ruby hashrocket conversion
+nmap <leader>rh :%s/\v:(\w+) \=\>/\1:/g<cr>
 
 " disable arrow keys
 inoremap <Up>    <NOP>
@@ -162,6 +165,7 @@ colorscheme solarized
 set background=light
 set t_Co=256
 let g:solarized_termcolors=256
+call togglebg#map("<F5>")
 
 Bundle "scrooloose/nerdtree"
 
@@ -177,6 +181,8 @@ let NERDTreeMapOpenSplit = "s"
 let NERDTreeMapOpenVSplit = "v"
 let NERDTreeMinimalUI = 1
 let NERDTreeIgnore=['\.rbc$', '\~$']
+
+Bundle "ConradIrwin/vim-bracketed-paste"
 
 Bundle "bling/vim-airline"
 let g:airline_theme="solarized"
