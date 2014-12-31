@@ -60,6 +60,12 @@ set backspace=indent,eol,start
 set modeline
 set modelines=10
 
+" Make me curse less
+:command WQ wq
+:command Wq wq
+:command W w
+:command Q q
+
 " ~~~~~~~~~~~~ key bindings ~~~~~~~~~~~~~~
 
 " Leader key
@@ -160,12 +166,7 @@ call vundle#rc()
 Bundle "gmarik/vundle"
 
 " the best color scheme ever
-Bundle "altercation/vim-colors-solarized"
-colorscheme solarized
-set background=light
-set t_Co=256
-let g:solarized_termcolors=256
-call togglebg#map("<F5>")
+colorscheme Tomorrow-Night
 
 Bundle "scrooloose/nerdtree"
 
@@ -184,8 +185,10 @@ let NERDTreeIgnore=['\.rbc$', '\~$']
 
 Bundle "ConradIrwin/vim-bracketed-paste"
 
+Plugin 'flazz/vim-colorschemes'
+
 Bundle "bling/vim-airline"
-let g:airline_theme="solarized"
+let g:airline_theme="tomorrow"
 
 Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
