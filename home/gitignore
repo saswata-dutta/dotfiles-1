@@ -25,3 +25,5 @@ tmp
 .powrc
 .ruby-gemset
 dotfiles
+node_modules
+.byebug_history

@@ -41,6 +41,8 @@
   aa = add .
   p  = push
   u  = up
+  uchl = commit -am 'Update CHANGELOG [ci skip]'
+  urdm = commit -am 'Update README [ci skip]'
 
 [mergetool "diffmerge"]
   cmd = diffmerge --merge --result=$MERGED $LOCAL $BASE $REMOTE

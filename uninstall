@@ -1,0 +1,9 @@
+#!/bin/bash
+
+for config in `ls home`
+do
+  if [ -e "$HOME/.$config" ]; then
+    echo "unlinking $config"
+    rm "$HOME/.$config"
+  fi
+done

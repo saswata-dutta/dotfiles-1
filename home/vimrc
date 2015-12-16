@@ -15,9 +15,6 @@ set guioptions-=LR
 " We want colors!
 syntax on
 
-" Vundle needs this for ftdetect to work
-filetype off
-
 " Whitespace stuff
 set nowrap
 set tabstop=2
@@ -52,6 +49,7 @@ set colorcolumn=80
 
 " Thorfile, Rakefile and Gemfile are Ruby
 au BufRead,BufNewFile {Gemfile,Gemfile.local,Rakefile,Thorfile,Guardfile,config.ru,*.prawn,*.eye} set ft=ruby
+au BufRead,BufNewFile {*.json.*} set ft=javascript
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
@@ -61,10 +59,11 @@ set modeline
 set modelines=10
 
 " Make me curse less
-:command WQ wq
-:command Wq wq
-:command W w
-:command Q q
+:command! WQ wq
+:command! Wq wq
+:command! W w
+:command! Q q
+:command! Qa qa
 
 " ~~~~~~~~~~~~ key bindings ~~~~~~~~~~~~~~
 
@@ -160,97 +159,89 @@ autocmd BufWritePre * :%s/\s\+$//e
 
 " ~~~~~~~~~~~~ plugins ~~~~~~~~~~~~~~
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+" Vundle needs this for ftdetect to work
+" filetype off
 
-Bundle "gmarik/vundle"
+" set rtp+=~/.vim/bundle/Vundle/
+" call vundle#rc()
+"
+" Plugin 'VundleVim/Vundle.vim'
 
 " the best color scheme ever
-colorscheme Tomorrow-Night
+" colorscheme Tomorrow-Night
 
-Bundle "scrooloose/nerdtree"
+" Plugin 'scrooloose/nerdtree'
 
-function! ToggleFileExplorer()
- :NERDTreeToggle
- :redraw
-endfunction
-:command! ToggleFileExplorer :call ToggleFileExplorer()
+" function! ToggleFileExplorer()
+"  :NERDTreeToggle
+"  :redraw
+" endfunction
+" :command! ToggleFileExplorer :call ToggleFileExplorer()
 
-nmap <silent> <leader>n :ToggleFileExplorer<CR>
+" nmap <silent> <leader>n :ToggleFileExplorer<CR>
 
-let NERDTreeMapOpenSplit = "s"
-let NERDTreeMapOpenVSplit = "v"
-let NERDTreeMinimalUI = 1
-let NERDTreeIgnore=['\.rbc$', '\~$']
+" let NERDTreeMapOpenSplit = "s"
+" let NERDTreeMapOpenVSplit = "v"
+" let NERDTreeMinimalUI = 1
+" let NERDTreeIgnore=['\.rbc$', '\~$']
 
-Bundle "ConradIrwin/vim-bracketed-paste"
+" Plugin 'ConradIrwin/vim-bracketed-paste'
 
-Plugin 'flazz/vim-colorschemes'
+" Plugin 'flazz/vim-colorschemes'
 
-Bundle "bling/vim-airline"
-let g:airline_theme="tomorrow"
+" Plugin 'bling/vim-airline'
+" let g:airline_theme="tomorrow"
 
-Bundle "MarcWeber/vim-addon-mw-utils"
-Bundle "tomtom/tlib_vim"
+" Plugin 'MarcWeber/vim-addon-mw-utils'
 
-"Bundle "Shougo/vimproc.vim"
-"Bundle "Shougo/unite.vim"
-"nnoremap <C-p> :Unite file_rec/async<cr>
+" Plugin 'tomtom/tlib_vim'
 
-Bundle "kien/ctrlp.vim"
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/vendor/*,*/coverage/*,*/profiling/*,*/measurements/*,*/doc/*
-nnoremap <leader>. :CtrlPTag<cr>
+" Plugin 'kien/ctrlp.vim'
+" set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/vendor/*,*/coverage/*,*/profiling/*,*/measurements/*,*/doc/*,*/node_modules/*
+" nnoremap <leader>. :CtrlPTag<cr>
 
-Bundle "mileszs/ack.vim"
-Bundle "tpope/vim-abolish"
-Bundle "tpope/vim-surround"
-Bundle "tpope/vim-commentary"
-Bundle "tpope/vim-unimpaired"
-Bundle "vim-scripts/BufOnly.vim"
-Bundle "vim-scripts/taglist.vim"
-Bundle "garbas/vim-snipmate"
-Bundle "honza/vim-snippets"
+" Plugin 'mileszs/ack.vim'
+" Plugin 'tpope/vim-abolish'
+" Plugin 'tpope/vim-surround'
+" Plugin 'tpope/vim-commentary'
+" Plugin 'tpope/vim-unimpaired'
+" Plugin 'tpope/vim-repeat'
 
-Bundle "mattn/gist-vim"
-let g:github_token = $GITHUB_TOKEN
-let g:gist_clip_command = 'pbcopy'
+" Plugin 'vim-scripts/BufOnly.vim'
+" Plugin 'vim-scripts/taglist.vim'
+" Plugin 'garbas/vim-snipmate'
+" Plugin 'honza/vim-snippets'
 
-Bundle "scrooloose/syntastic"
-let g:syntastic_check_on_open=1
+" Plugin 'mattn/gist-vim'
+" let g:github_token = $GITHUB_TOKEN
+" let g:gist_clip_command = 'pbcopy'
 
-Bundle "tpope/vim-fugitive"
+" Plugin 'scrooloose/syntastic'
+" let g:syntastic_check_on_open=1
 
-Bundle "pangloss/vim-javascript"
-Bundle "tpope/vim-haml"
-Bundle "tpope/vim-markdown"
-Bundle "slim-template/vim-slim"
-Bundle "timcharper/textile.vim"
-Bundle "vim-ruby/vim-ruby"
-Bundle "jgdavey/vim-blockle"
-Bundle "tpope/vim-rails"
-Bundle "puppetlabs/puppet-syntax-vim"
+" Plugin 'tpope/vim-fugitive'
 
-Bundle "groenewege/vim-less"
-Bundle "kchmck/vim-coffee-script"
-Bundle "vim-scripts/VimClojure"
+" Plugin 'vim-ruby/vim-ruby'
+" Plugin 'raichoo/haskell-vim'
+" Plugin 'vim-scripts/VimClojure'
+" Plugin 'elixir-lang/vim-elixir'
+" Plugin 'pangloss/vim-javascript'
+" Plugin 'kchmck/vim-coffee-script'
 
-Bundle "godlygeek/tabular"
-vnoremap <leader>t= :Tab /=<cr>
-vnoremap <leader>t> :Tab /=><cr>
-vnoremap <leader>t: :Tab /\w:\zs/l0l1<cr>
+" Plugin 'tpope/vim-haml'
+" Plugin 'tpope/vim-markdown'
+" Plugin 'slim-template/vim-slim'
+" Plugin 'groenewege/vim-less'
+" Plugin 'jgdavey/vim-blockle'
+" Plugin 'puppetlabs/puppet-syntax-vim'
 
-Bundle "tpope/vim-repeat"
-Bundle "michaeljsmith/vim-indent-object"
-
-" required by vim-textobj-ruby
-Bundle "edsono/vim-matchit"
-runtime macros/matchit.vim
-
-Bundle "kana/vim-textobj-user"
-Bundle "nelstrom/vim-textobj-rubyblock"
+" Plugin 'michaeljsmith/vim-indent-object'
+" Plugin 'kana/vim-textobj-user'
+" Plugin 'nelstrom/vim-textobj-rubyblock'
 
 " load the plugin and indent settings for the detected filetype
-filetype plugin indent on
+" call vundle#end()
+" filetype plugin indent on
 
 " ~~~~~~~~~~~~ include local config  ~~~~~~~~~~~~~~
 
