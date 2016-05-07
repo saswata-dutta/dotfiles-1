@@ -20,3 +20,5 @@ alias bu="bundle update"
 
 alias rs="rake spec"
 alias ss="spring stop"
+
+alias e="emacs"

@@ -2,8 +2,8 @@
 
 for config in `ls home`
 do
-  if [ -e "$HOME/.$config" ]; then
-    echo "unlinking $config"
-    rm "$HOME/.$config"
+  if [ -L "$HOME/.$config" ] || [ -d "$HOME/.$config" ]; then
+    echo "Removing ~/.$config"
+    rm -rf "$HOME/.$config"
   fi
 done

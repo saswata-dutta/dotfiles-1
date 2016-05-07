@@ -1,3 +1,5 @@
-vim
+home/vim
+home/emacs.d
+home/spacemacs
 home/tmuxinator/*
 home/*.local

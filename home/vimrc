@@ -160,88 +160,98 @@ autocmd BufWritePre * :%s/\s\+$//e
 " ~~~~~~~~~~~~ plugins ~~~~~~~~~~~~~~
 
 " Vundle needs this for ftdetect to work
-" filetype off
+filetype off
 
-" set rtp+=~/.vim/bundle/Vundle/
-" call vundle#rc()
-"
-" Plugin 'VundleVim/Vundle.vim'
+set rtp+=~/.vim/bundle/Vundle/
+call vundle#rc()
 
-" the best color scheme ever
-" colorscheme Tomorrow-Night
+Plugin 'VundleVim/Vundle.vim'
 
-" Plugin 'scrooloose/nerdtree'
+" color scheme
+Plugin 'flazz/vim-colorschemes'
+colorscheme Tomorrow-Night
 
-" function! ToggleFileExplorer()
-"  :NERDTreeToggle
-"  :redraw
-" endfunction
-" :command! ToggleFileExplorer :call ToggleFileExplorer()
+" nerdtree
+Plugin 'scrooloose/nerdtree'
 
-" nmap <silent> <leader>n :ToggleFileExplorer<CR>
+function! ToggleFileExplorer()
+ :NERDTreeToggle
+ :redraw
+endfunction
+:command! ToggleFileExplorer :call ToggleFileExplorer()
 
-" let NERDTreeMapOpenSplit = "s"
-" let NERDTreeMapOpenVSplit = "v"
-" let NERDTreeMinimalUI = 1
-" let NERDTreeIgnore=['\.rbc$', '\~$']
+nmap <silent> <leader>n :ToggleFileExplorer<CR>
 
-" Plugin 'ConradIrwin/vim-bracketed-paste'
+let NERDTreeMapOpenSplit = "s"
+let NERDTreeMapOpenVSplit = "v"
+let NERDTreeMinimalUI = 1
+let NERDTreeIgnore=['\.rbc$', '\~$']
 
-" Plugin 'flazz/vim-colorschemes'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+let g:airline_theme="tomorrow"
 
-" Plugin 'bling/vim-airline'
-" let g:airline_theme="tomorrow"
+Plugin 'scrooloose/syntastic'
+let g:syntastic_check_on_open=1
 
-" Plugin 'MarcWeber/vim-addon-mw-utils'
-
+Plugin 'MarcWeber/vim-addon-mw-utils'
 " Plugin 'tomtom/tlib_vim'
 
-" Plugin 'kien/ctrlp.vim'
-" set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/vendor/*,*/coverage/*,*/profiling/*,*/measurements/*,*/doc/*,*/node_modules/*
-" nnoremap <leader>. :CtrlPTag<cr>
+Plugin 'kien/ctrlp.vim'
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/vendor/*,*/coverage/*,*/profiling/*,*/measurements/*,*/doc/*,*/node_modules/*
+nnoremap <leader>. :CtrlPTag<cr>
 
-" Plugin 'mileszs/ack.vim'
-" Plugin 'tpope/vim-abolish'
-" Plugin 'tpope/vim-surround'
-" Plugin 'tpope/vim-commentary'
-" Plugin 'tpope/vim-unimpaired'
-" Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-abolish'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-unimpaired'
+Plugin 'tpope/vim-repeat'
 
-" Plugin 'vim-scripts/BufOnly.vim'
-" Plugin 'vim-scripts/taglist.vim'
-" Plugin 'garbas/vim-snipmate'
-" Plugin 'honza/vim-snippets'
+Plugin 'vim-scripts/BufOnly.vim'
+Plugin 'vim-scripts/taglist.vim'
 
-" Plugin 'mattn/gist-vim'
-" let g:github_token = $GITHUB_TOKEN
-" let g:gist_clip_command = 'pbcopy'
+" required by snipmate
+Plugin 'tomtom/tlib_vim'
 
-" Plugin 'scrooloose/syntastic'
-" let g:syntastic_check_on_open=1
+Plugin 'garbas/vim-snipmate'
+Plugin 'honza/vim-snippets'
 
-" Plugin 'tpope/vim-fugitive'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'raichoo/haskell-vim'
+Plugin 'elixir-lang/vim-elixir'
+Plugin 'pangloss/vim-javascript'
+Plugin 'kchmck/vim-coffee-script'
 
-" Plugin 'vim-ruby/vim-ruby'
-" Plugin 'raichoo/haskell-vim'
-" Plugin 'vim-scripts/VimClojure'
-" Plugin 'elixir-lang/vim-elixir'
-" Plugin 'pangloss/vim-javascript'
-" Plugin 'kchmck/vim-coffee-script'
+" clojure
+Plugin 'guns/vim-clojure-static'
+Plugin 'guns/vim-sexp'
+Plugin 'kien/rainbow_parentheses.vim'
+Plugin 'tpope/vim-fireplace'
+Plugin 'tpope/vim-sexp-mappings-for-regular-people'
 
-" Plugin 'tpope/vim-haml'
-" Plugin 'tpope/vim-markdown'
-" Plugin 'slim-template/vim-slim'
-" Plugin 'groenewege/vim-less'
-" Plugin 'jgdavey/vim-blockle'
-" Plugin 'puppetlabs/puppet-syntax-vim'
+Plugin 'tpope/vim-markdown'
+Plugin 'slim-template/vim-slim'
+Plugin 'groenewege/vim-less'
+Plugin 'jgdavey/vim-blockle'
+Plugin 'puppetlabs/puppet-syntax-vim'
 
-" Plugin 'michaeljsmith/vim-indent-object'
-" Plugin 'kana/vim-textobj-user'
-" Plugin 'nelstrom/vim-textobj-rubyblock'
+Plugin 'michaeljsmith/vim-indent-object'
+Plugin 'kana/vim-textobj-user'
+Plugin 'nelstrom/vim-textobj-rubyblock'
+
+Plugin 'tpope/vim-dispatch'
+Plugin 'thoughtbot/vim-rspec'
+
+map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>s :call RunNearestSpec()<CR>
+map <Leader>l :call RunLastSpec()<CR>
+map <Leader>a :call RunAllSpecs()<CR>
+
+let g:rspec_command = "Dispatch bundle exec rspec {spec}"
 
 " load the plugin and indent settings for the detected filetype
-" call vundle#end()
-" filetype plugin indent on
+ call vundle#end()
+ filetype plugin indent on
 
 " ~~~~~~~~~~~~ include local config  ~~~~~~~~~~~~~~
 
